@@ -1,0 +1,33 @@
+# CEDAR Logic RAM memory file.
+# The file format is :
+# "hex_address : hex_data"
+#
+# For example, if the address "0" contained the decimal
+# number "18", then the line for that address would be :
+# "0 : 12"
+#
+# Note that if a memory location is not represented here,
+# then it is assumed to contain the data value "0"
+ 
+80 : A1A2	# Load a value directly to memory Program Syntax must be AAA underscore DDDD
+10 : B324	# MOVE from specified Address into Accumulator Acc = AAA Contents
+11 : B024	# MOVE from specified Address into Accumulator Acc = AAA Contents
+12 : E025	# Unconditional Jump destination specified by label text
+13 : B004	# MOVE from specified Address into Accumulator Acc = AAA Contents
+14 : A222	# STORE Accumulator contents into specified Address AAA = Acc
+15 : 9546	# MOVE data into Address Register 0
+16 : 8122	# MOVE data into Address Register 1
+17 : 7050	# MOVE data into Stack Pointer
+18 : 6024	# Jump to Subroutine destination specified by label text
+19 : 5012	# Subtracts Accumulator value from data.  Acc = DDD - Acc
+1a : 4012	# MOVE data into Data Register 0
+1b : 4001	# MOVE data into Data Register 0
+1c : 3324	# MOVE data into Data Register 1
+1d : FE07	# Branch if zero (Relative). If accumulator adder Zero bit set
+1e : FC08	# Branch if Minus (Relative). If accumulator adder Negative bit set
+1f : FFE0	# STORE Accumulator value to Register (A0=0, A1=1, D0=2, D1=3) = Acc
+20 : FFD1	# STORE Accumulator value to Register&increment (A0=0 or A1=1 or D0=2 or D1=3) = Acc
+21 : FFC0	# MOVE Address contents specified by Register to Acc = (A0=0 or A1=1 or D0=2 or D1=3)
+22 : FFB2	# MOVE Address contents specified by Register&increment to Acc = (A0=0 or A1=1 or D0=2 or D1=3)
+23 : FFA1	# Adds Acc=Acc + contents Specified by Any Register&increment
+24 : FFFB	# Return from Subroutine
